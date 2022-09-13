@@ -6,18 +6,13 @@ import matplotlib.pyplot as plt
 from datetime import date, timedelta
 
 txt = 'Token ' + str(st.secrets.DB_TOKEN)
+days == 1
+dt_obj = date.today() - timedelta(days=days)
+dt = str(dt_obj)
+tup = (str(dt_obj.day), str(dt_obj.month), str(dt_obj.year))
+dt_trans = '-'.join(tup)
 
-
-try:
-
-    days == 1
-    
-    dt_obj = date.today() - timedelta(days=days)
-
-    dt = str(dt_obj)
-    tup = (str(dt_obj.day), str(dt_obj.month), str(dt_obj.year))
-    dt_trans = '-'.join(tup)
-    
+try:   
     url = f'https://data.gov.gr/api/v1/query/admie_dailyenergybalanceanalysis?date_from={dt}&date_to={dt}'
     headers = {'Authorization': txt}
     response = requests.get(url, headers=headers)
@@ -45,7 +40,7 @@ try:
     
 except:
   
-    days == 2
+    days += 1
     
     dt_obj = date.today() - timedelta(days=days)
 
