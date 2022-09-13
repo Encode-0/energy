@@ -6,8 +6,7 @@ import matplotlib.pyplot as plt
 from datetime import date, timedelta
 
 txt = 'Token ' + str(st.secrets.DB_TOKEN)
-days == 1
-dt_obj = date.today() - timedelta(days=days)
+dt_obj = date.today() - timedelta(days=1)
 dt = str(dt_obj)
 tup = (str(dt_obj.day), str(dt_obj.month), str(dt_obj.year))
 dt_trans = '-'.join(tup)
@@ -39,10 +38,7 @@ try:
     st.pyplot(fig)
     
 except:
-  
-    days += 1
-    
-    dt_obj = date.today() - timedelta(days=days)
+    dt_obj = date.today() - timedelta(days=2)
 
     dt = str(dt_obj)
     tup = (str(dt_obj.day), str(dt_obj.month), str(dt_obj.year))
